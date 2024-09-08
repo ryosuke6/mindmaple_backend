@@ -1,28 +1,26 @@
 version: '3.8'
 
 services:
-  web:
+  mindmaple_api:
     build: .
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     volumes:
       - ./app:/app/app
     ports:
       - "8000:8000"
-    environment:
-      - DATABASE_URL=postgresql://mindmaple:mindmaplepassword@db:5432/mindmaple_db
+    env_file:
+      - .env
     depends_on:
-      - db
+      - mindmaple_db
 
-  db:
+  mindmaple_db:
     image: postgres:13
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_USER=mindmaple
-      - POSTGRES_PASSWORD=mindmaplepassword
-      - POSTGRES_DB=mindmaple_db
+      - mindmaple_postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env
     ports:
       - "5432:5432"
 
 volumes:
-  postgres_data:
+  mindmaple_postgres_data:

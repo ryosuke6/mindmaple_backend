@@ -1,5 +1,5 @@
-# ベースイメージとしてPython 3.9を使用
-FROM python:3.9
+# ビルドステージ
+FROM python:3.9-slim-buster
 
 # 作業ディレクトリを設定
 WORKDIR /app
@@ -9,6 +9,7 @@ COPY requirements.txt .
 
 # 依存関係をインストール
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install uvicorn
 
 # アプリケーションのソースコードをコピー
 COPY ./app /app/app
