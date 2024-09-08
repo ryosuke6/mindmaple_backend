@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     PROJECT_NAME: str = "MindMaple"
     PROJECT_VERSION: str = "1.0.0"
-    DATABASE_URL: str = "sqlite:///./mindmaple.db"
+    DATABASE_URL: str = "postgresql://mindmaple:mindmaplepassword@db:5432/mindmaple_db"
 
     class Config:
         env_file = ".env"
