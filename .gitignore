@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 仮想環境
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# データベース
+*.db
+
+# 環境変数
+.env
+
+# ログ
+*.log
+
+# OS生成ファイル
+.DS_Store
+Thumbs.db
+
+# FastAPI
+.pytest_cache/
+
+# 依存関係
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ビルド
+build/
+dist/
+*.egg-info/
+
+# その他
+*.bak
+*.swp
+*.swo
